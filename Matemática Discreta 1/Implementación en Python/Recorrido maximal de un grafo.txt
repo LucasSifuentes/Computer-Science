@@ -1,0 +1,12 @@
+Mostramos en pseudocódigo el algoritmo de recorrido maximal.
+def r_max(L, v_ini):
+# pre: L grafo, v_ini vértice de L
+# post: recorrido maximal que comienza en v_ini
+sub_caminata = [v_ini] # sub caminata
+p0 = v_ini
+while len(L.adyacentes(p0)) > 0:
+p1 = L.adyacentes(p0)[0] # p1 primer adyacente a p0
+sub_caminata.append(p1) # agrega p1 a caminata
+L.quitar_arista((p0,p1)) # quita arista {p0, p1}
+p0 = p1
+return sub_caminata
